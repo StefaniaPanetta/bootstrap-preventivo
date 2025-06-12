@@ -5,7 +5,7 @@ console.log("Preventivo")
 const formElement = document.getElementById('form-preventivo')
 const InputJob = document.getElementById("inputLavoro")
 const InputSconto = document.getElementById("PromoCode")
-const prezzoFinale = document.getElementById("prezzoFinale")
+const OutputPrezzoFinale = document.getElementById("prezzoFinaleCard")
 
 // ascolto l'evento submit e al submit blocco l'invio del form
 
@@ -28,8 +28,8 @@ formElement.addEventListener ('submit', function (event) {
 		prezzoBase = 10 * 20.50
 	} else if (JobValue === 'frontend') {
     prezzoBase = 10 * 15.30	}
-    else (JobValue === 'project') {
-    prezzoBase = 10 * 33.60	}
+    else if (JobValue === 'project'){
+    prezzoBase = 10 * 33.60}
  
   // calcoliamo lo sconto
   let percentualeSconto = 0
@@ -41,9 +41,7 @@ formElement.addEventListener ('submit', function (event) {
     ScontoValue === 'POCIE24'
    ){
 		percentualeSconto = 25
-	} else if (ScontoValue === 'null') {
-		percentualeSconto = 0
-	}
+	} 
 
   console.log('percentuale sconto', percentualeSconto)
 
@@ -57,6 +55,6 @@ formElement.addEventListener ('submit', function (event) {
 	console.log('prezzo finale', prezzoFinale)
 
   // lo stampo nella sezione
-  prezzoOutputElement.innerHTML = prezzoFinale.toFixed(2) + ' &euro;'
+  OutputPrezzoFinale.innerHTML = prezzoFinale.toFixed(2) + ' &euro;'
 
   })
